@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <h1 class="title">Hello World!</h1>
+      <p id="currentTime"></p>
+      <script src="script.js"></script>
+  </body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Surprise for Jenisha ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  background: #ffe4e1;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #333;
+  padding: 30px;
+}
+
+h1 { margin-bottom: 10px; }
+
+#tapText { font-size: 18px; }
+
+.heart-box {
+  position: relative;
+  width: 200px;
+  height: 180px;
+  margin: 30px auto;
+  cursor: pointer;
+}
+
+.heart-outline {
+  font-size: 180px;
+  color: #ffb3c6;
+  line-height: 180px;
+  pointer-events: none;
+}
+
+.heart-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  overflow: hidden;
+  transition: height 0.2s ease;
+  pointer-events: none;
+}
+
+.heart-fill span {
+  font-size: 180px;
+  color: #ff4d6d;
+  line-height: 180px;
+}
+
+#question, #message {
+  display: none;
+  margin-top: 25px;
+  font-size: 20px;
+}
+
+#message {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 200px;
+  text-align: center;
+}
+
+button {
+  margin-top: 15px;
+  padding: 12px 26px;
+  background: #ff6f91;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>✨ Surprise for Jenisha ✨</h1>
+<p id="tapText">Tap the heart to fill it ❤️</p>
+
+<div class="heart-box" id="heartBox">
+  <div class="heart-outline">♡</div>
+  <div class="heart-fill" id="heartFill"><span>❤️</span></div>
+</div>
+
+<div id="question">
+  <p>💌 Who do you love the most?</p>
+  <input type="text" id="answer" placeholder="Type here">
+  <br>
+  <button id="submitBtn">Submit ❤️</button>
+</div>
+
+<div id="message">
+  <p>
+    I love you so much. Even though we don’t talk a lot, every small talk and every reel you send makes me happy.
+    Waiting for your notifications brightens my day.
+    Everything you’ve done for me means a lot — thank you for all the effort you put in. ❤️
+  </p>
+</div>
+
+<audio id="song" loop>
+  <source src="EVERY_BREATH_LINK_HERE" type="audio/mpeg">
+</audio>
+
+<script>
+let progress = 0;
+const heartBox = document.getElementById("heartBox");
+const heartFill = document.getElementById("heartFill");
+const tapText = document.getElementById("tapText");
+const question = document.getElementById("question");
+const message = document.getElementById("message");
+const song = document.getElementById("song");
+const submitBtn = document.getElementById("submitBtn");
+
+heartBox.addEventListener("click", () => {
+  // play audio only on first tap
+  if (progress === 0) song.play().catch(()=>{});
+
+  if (progress < 100) {
+    progress += 10;
+    heartFill.style.height = progress + "%";
+  }
+
+  if (progress >= 100) {
+    tapText.innerText = "❤️ Heart full ❤️";
+    question.style.display = "block";
+  }
+});
+
+submitBtn.addEventListener("click", () => {
+  const ans = document.getElementById("answer").value.toLowerCase().trim();
+  if (ans === "roman") {
+    heartBox.remove();
+    question.remove();
+    tapText.innerText = "💖 For you 💖";
+    message.style.display = "block";
+  } else {
+    alert("❌ Try again ❤️");
+  }
+});
+</script>
+
+</body>
+</html>
